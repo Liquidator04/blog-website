@@ -41,7 +41,7 @@ export default async function homepage() {
                   {item.subtitle}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-4 text-gray-300">
+              <CardContent className="max-h-36 p-4 text-gray-300 overflow-hidden">
                 {item.content}
               </CardContent>
               <CardFooter className="flex justify-between items-center p-4 border-t border-gray-700">
