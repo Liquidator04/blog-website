@@ -12,11 +12,13 @@ import {
   FormField,
 } from "@/components/ui/form"
 import { useSession, signOut, SessionProvider } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 
 export default function WritePage() {
   // const { data: session, status } = useSession();
   const form = useForm({ defaultValues: {} });
+  const router = useRouter();
 
   async function onSubmit(values) {
     console.log("submited values: ");
@@ -110,7 +112,7 @@ export default function WritePage() {
 
           {/* Action Buttons */}
           <div className="flex justify-between w-full max-w-lg mt-5">
-            <Button type="submit" variant="destructive" className="flex items-center gap-2">
+            <Button type="submit" variant="destructive" className="flex items-center gap-2" onClick={router.push('/homepage')}>
               <RiSignpostLine /> Post
             </Button>
             <Button variant="destructive" className="flex items-center gap-2">
