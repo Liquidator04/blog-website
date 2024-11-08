@@ -77,7 +77,7 @@ app.get("/blogs", async (req, res) => {
     try{
         const blogs = await Blogs.find()
         console.log(blogs)
-        res.status(200).send("Ok!");
+        res.json(blogs);
 
     } catch(error) {
         console.log("Error: ",error);
