@@ -16,7 +16,6 @@ export default function SignInPage() {
         action={async () => {
           "use server";
           await signIn("google");
-          console.log("User Details:", session.user);
         }}
       >
         <Button
