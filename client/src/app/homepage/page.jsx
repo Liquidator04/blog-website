@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 async function getBlogs() {
   const res = await fetch("http://localhost:5000/blogs", { cache: 'no-store' });
@@ -47,12 +48,14 @@ export default async function homepage() {
                 <p className="text-gray-500">
                   Published by {item.author} | October 2024
                 </p>
-                <Button
-                  variant="destructive"
-                  className="flex items-center gap-2"
-                >
-                  <FaBookReader /> Read More
-                </Button>
+                <Link href={`/readpage/${item._id}`}> 
+                  <Button
+                    variant="destructive"
+                    className="flex items-center gap-2"
+                  >
+                    <FaBookReader /> Read More
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           </div>
@@ -71,12 +74,16 @@ export default async function homepage() {
 
         {/* Navigation Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <Button variant="destructive" className="flex items-center gap-2">
-            <RiSignpostLine /> See Your Posts
-          </Button>
-          <Button variant="destructive" className="flex items-center gap-2">
-            <TfiWrite /> Write
-          </Button>
+          <Link href="/yourposts">
+            <Button variant="destructive" className="flex items-center gap-2">
+              <RiSignpostLine /> See Your Posts
+            </Button>
+          </Link>
+          <Link href="/writepage">
+            <Button variant="destructive" className="flex items-center gap-2">
+              <TfiWrite /> Write
+            </Button>
+          </Link>
           <Button variant="destructive" className="flex items-center gap-2">
             <FaSearch /> Search
           </Button>

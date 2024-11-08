@@ -92,7 +92,7 @@ app.get("/blogs/:id", async (req, res) => {
         const blog = await Blogs.findById({ _id: blogId});
         if(blog){
             console.log(blog);
-            res.status(200).send("Ok!");
+            res.json(blog)
         } else{
             res.status(500).send("Something Went Wrong");
         }
